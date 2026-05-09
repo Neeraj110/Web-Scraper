@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setHydrated(true);
-  }, []);
+  }, []); // Run once on mount to indicate hydration is complete
 
   const persistSession = (nextToken, nextUser) => {
     if (nextToken) {
