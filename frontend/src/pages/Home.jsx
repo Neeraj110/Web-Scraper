@@ -39,8 +39,8 @@ const Home = () => {
       });
 
       setStories(data.stories || []);
-      setPage(data.page || targetPage);
-      setPages(data.pages || 1);
+      setPage(data.currentPage || targetPage);
+      setPages(data.totalPages || 1);
       setError("");
     } catch (requestError) {
       setError(

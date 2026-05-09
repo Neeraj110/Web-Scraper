@@ -10,19 +10,21 @@ const getStories = asyncHandler(async (req, res) => {
 
   const [stories, total] = await Promise.all([
     Story.find()
-      .sort({ points: -1, createdAt: -1 })
+      .sort({ points: -1, updatedAt: -1 })
       .skip(skip)
       .limit(limit)
       .lean(),
     Story.countDocuments(),
   ]);
 
+  const totalPages = Math.ceil(total / limit);
+
   res.json({
     status: "success",
-    results: stories.length,
-    total,
-    page,
-    pages: Math.ceil(total / limit),
+    currentPage: page,
+    totalPages,
+    totalStories: total,
+    storiesOnPage: stories.length,
     stories,
   });
 });

@@ -4,6 +4,11 @@ import User from "../models/User.js";
 import AppError from "../utils/AppError.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { signToken } from "../utils/jwt.js";
+import {
+  isValidEmail,
+  isValidPassword,
+  isValidName,
+} from "../utils/validators.js";
 
 const buildAuthResponse = (user) => ({
   _id: user._id,
@@ -17,6 +22,19 @@ const register = asyncHandler(async (req, res, next) => {
 
   if (!name || !email || !password) {
     return next(new AppError("Name, email, and password are required", 400));
+  }
+
+  if (!isValidName(name)) {
+    return next(new AppError("Name must be between 1 and 100 characters", 400));
+  }
+
+  if (!isValidEmail(email)) {
+    return next(new AppError("Invalid email format", 400));
+  }
+
+  const passwordValidation = isValidPassword(password);
+  if (!passwordValidation.valid) {
+    return next(new AppError(passwordValidation.message, 400));
   }
 
   const normalizedEmail = email.toLowerCase().trim();
@@ -47,6 +65,10 @@ const login = asyncHandler(async (req, res, next) => {
 
   if (!email || !password) {
     return next(new AppError("Email and password are required", 400));
+  }
+
+  if (!isValidEmail(email)) {
+    return next(new AppError("Invalid email or password", 401));
   }
 
   const user = await User.findOne({ email: email.toLowerCase().trim() }).select(
