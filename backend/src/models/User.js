@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
@@ -22,15 +22,15 @@ const userSchema = new mongoose.Schema(
     bookmarks: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Story',
+        ref: "Story",
       },
     ],
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

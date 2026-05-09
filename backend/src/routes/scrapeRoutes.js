@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import { triggerScrape } from '../controllers/scrapeController.js';
+import { triggerScrape } from "../controllers/scrapeController.js";
 
 const router = Router();
 
-router.post('/scrape', triggerScrape);
+router.post("/scrape", triggerScrape);
 
 export default router;

@@ -3,42 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: light;
-    font-family: 'Trebuchet MS', 'Lucida Grande', 'Gill Sans', sans-serif;
-    background-color: #f4efe8;
-    color: #13222f;
-  }
+    :root {
+        color-scheme: light;
+        font-family: 'Trebuchet MS', 'Lucida Grande', 'Gill Sans', sans-serif;
+        background-color: #f4efe8;
+        color: #13222f;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 
-  body {
-    min-height: 100vh;
-    margin: 0;
-    background:
-      radial-gradient(circle at top left, rgba(214, 165, 49, 0.14), transparent 28%),
-      radial-gradient(circle at top right, rgba(15, 76, 92, 0.14), transparent 24%),
-      linear-gradient(180deg, #f9f5ef 0%, #f4efe8 100%);
-  }
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+            radial-gradient(circle at top left, rgba(214, 165, 49, 0.14), transparent 28%),
+            radial-gradient(circle at top right, rgba(15, 76, 92, 0.14), transparent 24%),
+            linear-gradient(180deg, #f9f5ef 0%, #f4efe8 100%);
+    }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-  * {
-    box-sizing: border-box;
-  }
+    * {
+        box-sizing: border-box;
+    }
 
-  ::selection {
-    background: rgba(212, 76, 45, 0.2);
-  }
+    ::selection {
+        background: rgba(212, 76, 45, 0.2);
+    }
 }
 
 @layer components {
-  .font-serif {
-    font-family: Georgia, 'Times New Roman', serif;
-  }
+    .font-serif {
+        font-family: Georgia, 'Times New Roman', serif;
+    }
 }

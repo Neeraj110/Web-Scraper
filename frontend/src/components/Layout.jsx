@@ -1,6 +1,6 @@
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from "react-router-dom";
 
-import { useAuth } from '../context/AuthContext.jsx';
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Layout = () => {
   const { hydrated, isAuthenticated, user, logout } = useAuth();
@@ -15,8 +15,12 @@ const Layout = () => {
               HN
             </span>
             <div>
-              <p className="font-serif text-lg font-black tracking-tight">Hacker News Story Hub</p>
-              <p className="text-xs uppercase tracking-[0.25em] text-ink/55">Top stories, fast access</p>
+              <p className="font-serif text-lg font-black tracking-tight">
+                Hacker News Story Hub
+              </p>
+              <p className="text-xs uppercase tracking-[0.25em] text-ink/55">
+                Top stories, fast access
+              </p>
             </div>
           </Link>
 
@@ -25,7 +29,9 @@ const Layout = () => {
               to="/"
               className={({ isActive }) =>
                 `rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  isActive ? 'bg-ink text-paper' : 'text-ink/70 hover:bg-black/5 hover:text-ink'
+                  isActive
+                    ? "bg-ink text-paper"
+                    : "text-ink/70 hover:bg-black/5 hover:text-ink"
                 }`
               }
             >
@@ -35,7 +41,9 @@ const Layout = () => {
               to="/bookmarks"
               className={({ isActive }) =>
                 `rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  isActive ? 'bg-ink text-paper' : 'text-ink/70 hover:bg-black/5 hover:text-ink'
+                  isActive
+                    ? "bg-ink text-paper"
+                    : "text-ink/70 hover:bg-black/5 hover:text-ink"
                 }`
               }
             >
@@ -45,7 +53,7 @@ const Layout = () => {
             {hydrated && isAuthenticated ? (
               <div className="flex items-center gap-3 rounded-full border border-black/10 bg-white/70 px-3 py-2 shadow-sm">
                 <span className="hidden text-sm font-medium text-ink/70 sm:inline">
-                  {user?.name || 'Reader'}
+                  {user?.name || "Reader"}
                 </span>
                 <button
                   type="button"

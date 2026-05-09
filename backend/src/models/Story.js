@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const storySchema = new mongoose.Schema(
   {
@@ -29,11 +29,11 @@ const storySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 storySchema.index({ url: 1 }, { unique: true });
 
-const Story = mongoose.model('Story', storySchema);
+const Story = mongoose.model("Story", storySchema);
 
 export default Story;
