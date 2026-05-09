@@ -37,7 +37,7 @@ const upsertStories = async (stories) => {
       const upserted = await Story.findOneAndUpdate(
         { url: story.url },
         { $set: story },
-        { upsert: true, new: true },
+        { upsert: true, returnDocument: "after" },
       );
       upsertedStories.push(upserted);
     } catch (error) {
