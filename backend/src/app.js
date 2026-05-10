@@ -25,6 +25,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stories", storyRoutes);
 app.use("/api", scrapeRoutes);
 
+app.get("/", (req, res) => {
+  res.json({ message: "This app is running!" });
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
